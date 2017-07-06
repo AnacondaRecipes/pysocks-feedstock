@@ -3,7 +3,7 @@
 {% set compress_type= "tar.gz" %}
 {% set hash_type = "sha256" %}
 {% set hash = "d00329f27efa157db7efe3ca26fcd69033cd61f83822461ee3f8a353b48e33cf" %}
-{% set build = 0 %}
+{% set build = 1 %}
 
 package:
   name: {{ name|lower }}
@@ -16,10 +16,10 @@ source:
 
 build:
   number: {{ build }}
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  script: ${PYTHON} setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
-  build:
+  host:
     - python
     - setuptools
 
